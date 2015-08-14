@@ -54,6 +54,7 @@ Parameters and local variables use local types.
 *Expression types* include all the local types, and also:
 
   * `void`: no value
+  * `bool`: boolean
 
 AST expression nodes use expression types.
 
@@ -395,8 +396,7 @@ count is at least the bitwidth of the shift, `shl` and `shr` produce `0`, and
 `sar` produces `0` if the value being shifted is non-negative, and `-1`
 otherwise.
 
-All comparison operations yield 32-bit integer results with `1` representing
-`true` and `0` representing `false`.
+All comparison operations yield `bool` results.
 
 ## 64-bit integer operations
 
@@ -479,6 +479,13 @@ implementations of the remaining required operations.
 
 In floating point comparisons, the operands are *unordered* if either operand
 is NaN, and *ordered* otherwise.
+
+## Boolean operations
+
+  * `bool.and`: binary logical and
+  * `bool.ior`: binary inclusive logical or
+  * `bool.xor`: binary exclusive logical or
+  * `bool.not`: unary logical negation
 
 ## Datatype conversions, truncations, reinterpretations, promotions, and demotions
 
